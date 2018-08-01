@@ -630,6 +630,9 @@ THREE.ZoomControl = class extends THREE.TouchControl {
      * @private
      */
     mouseWheel_(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
         this._mouse.prev.y -=
             e.deltaY * ([.00025, .01, .025][e.deltaMode] || .00025)
         ;
